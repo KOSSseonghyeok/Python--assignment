@@ -1,31 +1,66 @@
-'''import math
-total = int(input())
-count = 0
-li = [int(x) for x in range(100) if x%2 != 0]
-for n in range(total):
-    if count <= int(total/2):
-        if li.index(total) % 2 == 0:
-            print('0'*math.ceil(((total-count)/2))+"1"*count+'0'*int(((total-count)/2)))
-            count += 1
-        else:
-            print('1' * math.ceil(((total - count) / 2)) + "0" * count + '1' * int(((total - count) / 2)))
-            count += 1
+num = int(input())
+ls = []
+ls2 = []
+a = 0
+
+li = [int(k) for k in range(1, 100) if k % 2 != 0]
+for i in range(num):
+    count = int(input())
+    if li.index(count) % 2 != 0:
+        for j in range(int((count+1)/2)):
+            if ls == []:
+                for c in range(int(count)):
+                    ls.append("1")
+                ls2.insert(a, ''.join(ls))
+                a += 1
+
+            else:
+                if ls[a] == "1":
+                    for u in range(a, count-a):
+                        ls[u] = "0"
+                else:
+                    for u in range(a, count-a):
+                        ls[u] = "1"
+                ls2.insert(a, ''.join(ls))
+                a += 1
+        ls = []
+        a = 0
+        b = 0
+        while b < (count+1)/2:
+            print(ls2[b])
+            b += 1
+        b = 1
+        ls2 = ls2[::-1]
+        while b < (count+1)/2:
+            print(ls2[b])
+            b += 1
+        ls2 = []
     else:
-        count = 0
-        if li.index(total) % 2 == 0:
-            print('0'*math.ceil(((total-count)/2))+"1"*count+'0'*int(((total-count)/2)))
-            count += 1
-        else:
-            print('1' * math.ceil(((total - count) / 2)) + "0" * count + '1' * int(((total - count) / 2)))
-            count += 1'''
+        for j in range(int((count + 1) / 2)):
+            if ls == []:
+                for c in range(int(count)):
+                    ls.append("0")
+                ls2.insert(a, ''.join(ls))
+                a += 1
 
-def square(n):
-    if n > 0:
-        li = [int(x) for x in range(100) if x%2 != 0]
-        if li.index(n) % 2 == 0:
-            print('0'*n, end='')
-
-
-            return square(n - 2)
-    else:
-
+            else:
+                if ls[a] == "1":
+                    for u in range(a, count - a):
+                        ls[u] = "0"
+                else:
+                    for u in range(a, count - a):
+                        ls[u] = "1"
+                ls2.insert(a, ''.join(ls))
+                a += 1
+        ls = []
+        a = 0
+        b = 0
+        while b < (count + 1) / 2:
+            print(ls2[b])
+            b += 1
+        b = 1
+        ls2 = ls2[::-1]
+        while b < (count + 1) / 2:
+            print(ls2[b])
+            b += 1
+        ls2 = []
